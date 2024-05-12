@@ -2,9 +2,9 @@ local job = require('plenary.job')
 
 local M = {}
 
-M.conf = {
-  nb_dir = "/.nb/home/",
-  auto_sync = true,
+M.config = {
+  auto_sync = false,
+  nb_dir = os.getenv("HOME") .. "/.nb/home/",
 }
 
 M.sync = function()
@@ -23,7 +23,6 @@ M.sync = function()
     end
   }):start()
 end
-
 
 M.notify = function(message)
   vim.schedule(function()
